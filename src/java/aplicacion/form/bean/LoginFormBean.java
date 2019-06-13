@@ -40,10 +40,13 @@ public class LoginFormBean {
             FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario Valido", "Usuario Valido");
             FacesContext.getCurrentInstance().addMessage(null, facesMessage);
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioValidado", usuario);
-            resultado = "busquedaLibros?faces-redirect=true";
+            resultado = "welcomePrimefaces?faces-redirect=true";
         }
         return resultado;
     }
+    /*public String getNombreUsuarioValidado(){
+        Usuario usuario =(Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuarioValidado");
+    }*/
     /**
      * @return the loginBean
      */
@@ -52,6 +55,7 @@ public class LoginFormBean {
         return loginBean;
     }
 
+    
     /**
      * @param loginBean the loginBean to set
      */

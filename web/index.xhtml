@@ -9,16 +9,16 @@
     <h:body>
         <p:panel header="Iniciar Sesion" >
             <h:form id="login">
-            <p:outputLabel id="lbl1" value="Usuario"/>
-            <p:inputText id="txt1" value="#{loginFormBean.nombreUs}" />
-            <br/><br/>
-            <p:outputLabel id="tlbl2" value="Contraseña"/>
-            <p:inputText id="txt2" value="#{loginFormBean.passwUs}" />
-            <br/><br/>
-            <p:commandButton id="btn1" value="Ingresar" update="login" action="#{loginFormBean.validarUsuario()}"/>
-            <br/>
-            <p:outputLabel id='lbl3' value="No tienes una cuenta?"/>
-            <p:link href="registro.xhtml" value="Registrate"/>
+                <p:growl id="mens" showDetail="false" sticky="false"/>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:outputLabel id="lbl1" value="Usuario"/>
+                    <p:inputText id="txt1" value="#{loginFormBean.nombreUs}" />
+                    <p:outputLabel id="tlbl2" value="Contraseña"/>
+                    <p:password id="pssw1" value="#{loginFormBean.passwUs}" />
+                    <p:commandButton id="btn1" value="Ingresar" update="login" action="#{loginFormBean.validarUsuario()}"/>
+                    <p:outputLabel id='lbl3' value="No tienes una cuenta?"/>
+                    <p:link href="registro.xhtml" value="Registrate"/>
+                </h:panelGrid>
             </h:form>
         </p:panel>
     </h:body>

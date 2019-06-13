@@ -23,10 +23,11 @@ public class UsuarioDAOImp implements IUsuarioDAO{
     @Override
     public Usuario validarUsuario(String nombreUsuario, String password) {
         Usuario u = null;
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Usuario.class);
-        criteria.add(Restrictions.like("nombreUser", nombreUsuario));
+        criteria.add(Restrictions.like("nombreUsuario", nombreUsuario));
+        criteria.add(Restrictions.like("password", password));
         if (!criteria.list().isEmpty()){
             u = (Usuario)criteria.list().get(0);
         }
